@@ -8,7 +8,7 @@ import Button from '../../components/Button'
 import getValidationErrors from '../../utils/getValidationErrors'
 import { FormHandles } from '@unform/core'
 import { useToast } from '../../hooks/toast'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Container, Background, Content, AnimationContainer } from './styles'
 import api from '../../services/api'
 
