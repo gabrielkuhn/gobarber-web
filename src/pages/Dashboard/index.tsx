@@ -6,6 +6,7 @@ import 'react-day-picker/lib/style.css'
 
 import { FiClock, FiPower } from 'react-icons/fi'
 import logoImg from '../../assets/logo.svg'
+import defaultAvatarImg from '../../assets/default-avatar.svg'
 import { useAuth } from '../../hooks/auth'
 import api from '../../services/api'
 
@@ -21,6 +22,7 @@ import {
   Appointment,
   Calendar
 } from './styles'
+import { Link } from 'react-router-dom'
 
 interface MonthAvailabilityItem {
   day: number
@@ -138,11 +140,13 @@ const Dashboard: React.FC = () => {
           <img src={logoImg} alt="GoBarber" />
 
           <Profile>
-            <img src={user.avatar_url} alt={user.name} />
+            <img src={user.avatar_url || defaultAvatarImg} alt={user.name} />
 
             <div>
               <span>Bem-vindo,</span>
-              <strong>{user.name}</strong>
+              <Link to="/profile">
+                <strong>{user.name}</strong>
+              </Link>
             </div>
           </Profile>
 
@@ -166,7 +170,7 @@ const Dashboard: React.FC = () => {
               <strong>Agendamento a seguir</strong>
               <div>
                 <img
-                  src={nextAppointment.user.avatar_url}
+                  src={nextAppointment.user.avatar_url || defaultAvatarImg}
                   alt={nextAppointment.user.name}
                 />
 
@@ -194,7 +198,7 @@ const Dashboard: React.FC = () => {
                 </span>
                 <div>
                   <img
-                    src={appointment.user.avatar_url}
+                    src={appointment.user.avatar_url || defaultAvatarImg}
                     alt={appointment.user.name}
                   />
 
@@ -219,7 +223,7 @@ const Dashboard: React.FC = () => {
                 </span>
                 <div>
                   <img
-                    src={appointment.user.avatar_url}
+                    src={appointment.user.avatar_url || defaultAvatarImg}
                     alt={appointment.user.name}
                   />
 
